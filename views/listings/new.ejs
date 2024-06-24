@@ -1,0 +1,37 @@
+<% layout('/layouts/boilerplate') -%>
+
+<body>
+    <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" class="form-control" name="listing[title]" placeholder="Enter Title" required>
+            <div class="valid-feedback">Title Looks Goods</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea input type="text" class="form-control" id="description" name="listing[description]" placeholder="Write description" required></textarea>
+            <div class="invalid-feedback">Please Write Descriptions</div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">image</label>
+            <input type="file" id="image" class="form-control" name="listing[image]" placeholder="Enter Url">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input id="price" class="form-control" name="listing[price]" placeholder="Enter price">
+            <div class="invalid-feedback">Please Write Price</div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">location</label>
+            <input type="text" id="location" class="form-control" name="listing[location]" placeholder="Enter location"required >
+            <div class="invalid-feedback">Please Write location Details</div>
+        </div>
+        <div class="mb-3">
+            <label for="country" class="form-label">country</label>
+            <input type="text" id="country" class="form-control" name="listing[country]" placeholder="Enter country" required>
+            <div class="invalid-feedback">Please Write country Details</div>
+        </div>
+
+        <button class="btn btn-dark add-btn">Add</button>
+    </form>
+</body>

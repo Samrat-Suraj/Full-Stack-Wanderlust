@@ -1,0 +1,75 @@
+<style>
+  .btn-search {
+    background-color: red;
+    color: #fff;
+    border-radius: 25px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-search:hover {
+    background-color: red;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .search-input {
+    border-radius: 25px;
+    width: 15rem;
+    outline: none;
+    font-size: 0.8rem;
+    outline: none;
+  }
+  .search-input:focus {
+    border: none;
+  }
+  .serch-btn {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a href="/listings"><i class="fa-solid fa-compass navbar-brand"></i></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav nav-adj ms-auto">
+        <form class="d-flex" role="search">
+          <div class="serch-btn">
+            <input
+              class="form-control me-2 search-input"
+              type="search"
+              placeholder="Search destinations"
+            />
+            <button class="btn btn-search" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser){ %>
+        <a class="nav-link" href="/signup">Sign Up</a>
+        <a class="nav-link" href="/login">login</a>
+        <% } %> <% if(currUser){ %>
+        <a class="nav-link" href="/logout">logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

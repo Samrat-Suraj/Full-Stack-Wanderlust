@@ -1,0 +1,156 @@
+<% layout('/layouts/boilerplate') -%>
+
+<style>
+    #filters{
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 6rem;
+    }
+    .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: .4rem;
+        opacity: 0.7;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    .filter p{
+        font-size: 0.8rem;
+    }
+    .tax-info{
+        display: none;
+    }
+    .text-toggle{
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 3.4rem;
+        padding: .8rem;
+        margin-left: 3rem;
+    }
+
+    @media(max-width : 1000px){
+        .text-toggle{
+            display: none;
+        }   
+    }
+    @media(max-width : 850px){
+        .nine{
+            display: none;
+        }
+    }
+    @media(max-width : 784px){
+        .eight{
+            display: none;
+        }
+    }
+    @media(max-width : 720px){
+        .seven{
+            display: none;
+        }
+    }
+    @media(max-width : 634px){
+        .six{
+            display: none;
+        }
+    }
+    @media(max-width : 517px){
+        .five{
+            display: none;
+        }
+    }
+    @media(max-width : 446px){
+        .hide{
+            display: none;
+        }
+    }
+
+</style>
+
+<div id="filters">
+    <div class="filter one hide">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Tranding</p>
+    </div>
+    <div class="filter two hide">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+    </div>
+    <div class="filter three hide">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Iconics City</p>
+    </div>
+    <div class="filter four hide">
+        <div><i class="fa-solid fa-mountain-sun"></i></div>
+        <p>Mountain</p>
+    </div>
+    <div class="filter five hide">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+    </div>
+    <div class="filter six">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools</p>
+    </div>
+    <div class="filter seven">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Campings</p>
+    </div>
+    <div class="filter eight">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+    </div>
+    <div class="filter nine">
+        <div><i class="fa-solid fa-snowman"></i></div>
+        <p>Arctic</p>
+    </div>
+    <div class="text-toggle ">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style="cursor: pointer;">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display Total After taxes</label>
+        </div>
+    </div>
+</div>
+
+<body>
+    <div class="container container-all mt-3">
+        <% for(let listing of listings){ %>
+        <a href="/listings/<%= listing.id %>">
+            <div class="overlays">
+            <div class="card card-list" style="width: 19rem;">
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>">
+              <div class="card-body">
+                  <b><p><%= listing.title %></p></b>
+                  <p>&#8360 <%= listing.price %>/nights &nbsp; <i class="tax-info">+18 GST</i></p>
+                  
+              </div>
+            </div>
+        </div>
+        </a>
+        <% } %>
+    </div>
+
+    <script>
+        let tagSwitch = document.getElementById('flexSwitchCheckDefault');
+        tagSwitch.addEventListener('click' , function(){
+            let tax_info = document.getElementsByClassName('tax-info');
+            let body = document.querySelector('body');
+
+            for(info of tax_info){
+                if(info.style.display != 'inline' && body.style.backgroundColor !== 'white'){
+                    info.style.display = 'inline'
+                    body.style.backgroundColor = 'white'
+                    body.style.color = 'black'
+
+                }   
+                else{
+                    info.style.display = 'none'
+                    body.style.backgroundColor = 'black'
+                    body.style.color = 'white'
+                }
+            }
+        })
+    </script>
+</body>

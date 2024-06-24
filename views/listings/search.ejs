@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+  <div class="container mt-3">
+    <% for(let listing of data){ %>
+    <a href="/listings/<%= listing.id %>">
+      <div class="overlays">
+        <div class="card card-list" style="width: 19rem">
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top"
+            alt="<%= listing.title %>"
+          />
+          <div class="card-body">
+            <b><p><%= listing.title %></p></b>
+            <p>
+              &#8360; <%= listing.price %>/night &nbsp;
+              <i class="tax-info">+18% GST</i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</body>
