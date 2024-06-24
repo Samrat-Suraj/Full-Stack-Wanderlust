@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+.card {
+  border: none;
+}
+
 /* .navbar{
     display: flex;
     height: 5.6rem;
